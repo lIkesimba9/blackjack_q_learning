@@ -236,10 +236,10 @@ epsilon decayed 0.9 → 0.05; seed 42):
 | Variant | Q-table states | Final | Best eval |
 |---|---:|---:|---:|
 | Baseline (mimic dealer) | — | −0.086 | −0.086 |
-| hit / stick | 280 | −0.043 | −0.026 |
-| **+ double** | 280 | **−0.015** | **+0.005** |
-| + count (Hi-Lo) | 15,318 | −0.052 | −0.020 |
-| + count (fractional) | 30,415 | −0.067 | −0.037 |
+| hit / stick | 280 | −0.046 | −0.026 |
+| **+ double** | 280 | **−0.011** | **+0.008** |
+| + count (Hi-Lo) | 15,293 | −0.053 | −0.025 |
+| + count (fractional) | 30,310 | −0.072 | −0.037 |
 | + count + split (Hi-Lo) | 92,310 | −0.077 | −0.048 |
 | + count + split (fractional) | 131,224 | −0.082 | −0.059 |
 
@@ -249,8 +249,8 @@ The outcome was different from my first article — and far more instructive.
 
 **1. Nobody beat the house.** Every final average is negative. That's the correct
 answer: negative expectation is built into the rules. The closest to zero is the
-doubling agent (−0.015), which occasionally peeks into positive territory
-(+0.005) — roughly break-even.
+doubling agent (−0.011), which occasionally peeks into positive territory
+(+0.008) — roughly break-even.
 
 **2. The *simplest* learned agent wins.** Adding **doubling** gave the biggest
 improvement: one new action that barely grows the state space (still 280 states)
@@ -267,7 +267,7 @@ training — as epsilon decays, the agent commits to a greedy policy over a badl
 under-estimated table.
 
 **4. Hi-Lo consistently beats the fractional scheme.** The integer count produces
-fewer distinct count-states, so it converges better: −0.052 vs −0.067 for
+fewer distinct count-states, so it converges better: −0.053 vs −0.072 for
 counting, and −0.077 vs −0.082 with splitting.
 
 And the big caveat again: in all of the variants above the **bet size is fixed**,
